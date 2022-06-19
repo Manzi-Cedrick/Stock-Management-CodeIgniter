@@ -67,7 +67,7 @@ input[type="text"]:focus,input[type="number"]:focus,input[type="file"]:focus{
         <div>
             <h1>Update User</h1>
         </div>
-        <form action="<?= base_url().'index.php/Dashboard/update/'.$registered_details[0]['userId'] ?>" method="post">
+        <form action="<?= base_url().'index.php/Dashboard/updateUser/'.$registered_details[0]['userId'] ?>" method="post">
             <label>First Name</label>
             <input type="text" name="firstName" placeholder="Add Name" value="<?= $registered_details[0]['firstName']?>">
             <label>Last Name</label>
@@ -78,7 +78,7 @@ input[type="text"]:focus,input[type="number"]:focus,input[type="file"]:focus{
             <input type="number" name="phone" placeholder="Add tel" value="<?= $registered_details[0]['telephone']?>">
             <label>Gender</label>
             <?php
-            if($registered_details[0]['gender']===' '){?>
+            if($registered_details[0]['gender']==='on'){?>
                 <input type="radio" name="gender" checked> <span> Male</span>
         <?php
         }else{
