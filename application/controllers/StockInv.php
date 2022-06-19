@@ -6,7 +6,7 @@ class StockInv extends CI_Controller {
     {
         parent::__construct();
         $this->load->library('form_validation');
-        $this->load->model('UserModel');
+        $this->load->model('StockModel');
     }
 
 	/**
@@ -38,8 +38,8 @@ class StockInv extends CI_Controller {
 		$this->load->view('user/addUser', $data);
 	}
 	function storeInv(){
-		$usersall = new UserModel;
-		$usersall->AddUser();
+		$usersall = new StockModel;
+		$usersall->AddInventory();
 		redirect(base_url());
 	}
 	function deleteUser($id){
