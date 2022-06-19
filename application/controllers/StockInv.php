@@ -26,8 +26,8 @@ class StockInv extends CI_Controller {
 	 */
 	public function index()
 	{
-		$stockall = new UserModel;
-		$stockData['stockData'] = $stockall->getAllUser();
+		$stockall = new StockModel;
+		$stockData['stockData'] = $stockall->getInventory();
 		$stockData['title'] = "Stock Inventory";
         return $this->load->view('inventory/invAll',$stockData);
 	}
