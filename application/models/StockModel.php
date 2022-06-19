@@ -28,7 +28,7 @@ class StockModel extends CI_Model {
         $objectQuery = $this->db->get();
         return $objectQuery->result_array();
     }
-    public function DeleteProduct($id){
+    public function DeleteInv($id){
         $delete = $this->db->delete('stk_inventory', array('inventory_id'=>$id));
         if($delete){
             return true;
