@@ -77,7 +77,7 @@ input[type="text"]:focus,input[type="number"]:focus,input[type="file"]:focus{
             <label>Supplier Tel:</label>
             <input type="number" name="supplier_phone" placeholder="Add tel" value="<?= $registered_details[0]['supplier_phone'] ?>">
             <button class="btn add-btn" type="submit">Update</button>
-            <button class="btn cancel-btn" type="submit">Cancel</button>
+            <button class="btn cancel-btn">Cancel</button>
         </form>
     </div>
 </body>
