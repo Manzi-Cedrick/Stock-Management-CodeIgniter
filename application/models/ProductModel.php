@@ -8,6 +8,12 @@ class ProductModel extends CI_Model {
         return $query->result_array();
     }
     public function AddProduct(){
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('productName', 'Quantity Required', 'required');
+        $this->form_validation->set_rules('brand', 'Brand Required', 'required');
+        $this->form_validation->set_rules('supplier', 'Supplier Required', 'required');
+        $this->form_validation->set_rules('supplier_phone', 'Supplier Tel Required', 'required');
+        if($this->form_validation->run()== TRUE){
         $data = array(
             'product_Name'=>$this->input->post('productName'),
             'brand'=>$this->input->post('brand'),
@@ -16,7 +22,14 @@ class ProductModel extends CI_Model {
         );
         return $this->db->insert('products', $data);
     }
+    }
     public function UpdateProduct($id){
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('productName', 'Quantity Required', 'required');
+        $this->form_validation->set_rules('brand', 'Brand Required', 'required');
+        $this->form_validation->set_rules('supplier', 'Supplier Required', 'required');
+        $this->form_validation->set_rules('supplier_phone', 'Supplier Tel Required', 'required');
+        if($this->form_validation->run()== TRUE){
         $data = array(
             'product_Name'=>$this->input->post('productName'),
             'brand'=>$this->input->post('brand'),
@@ -25,6 +38,7 @@ class ProductModel extends CI_Model {
         );
         $this->db->where('productId',$id);
         return $this->db->update('products',$data);
+    }
     }
     public function getEachProductDetails($id){
         $this->db->select('*');
