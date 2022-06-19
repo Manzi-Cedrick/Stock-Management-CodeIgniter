@@ -27,7 +27,7 @@ class Products extends CI_Controller
 	function index()
 	{
 		$products = new ProductModel;
-		$data['title']="All Products";
+		$data['titles']="All Products::Store Management";
 		$data['data'] = $products->getProducts();
 		$this->load->view('products/productsread', $data);
 	}
