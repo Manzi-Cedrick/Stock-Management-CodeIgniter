@@ -67,7 +67,7 @@ input[type="text"]:focus,input[type="number"]:focus,input[type="file"]:focus{
         <div>
             <h1>Add Product</h1>
         </div>
-        <form action="<?= base_url().'index.php/Products/store'?>" method="post">
+        <form action="<?= base_url().'index.php/Products/storeProduct'?>" method="post">
             <label>Product Name</label>
             <input type="text" name="productName" placeholder="Add Product Name">
             <label>Brand</label>
