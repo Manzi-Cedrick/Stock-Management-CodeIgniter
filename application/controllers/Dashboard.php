@@ -28,39 +28,38 @@ class Dashboard extends CI_Controller {
 	{
 		$usersall = new UserModel;
 		$user_data['user_data'] = $usersall->getAllUser();
-		$user_data['title'] = "All Admins";
+		$user_data['title'] = "Dashboard";
         return $this->load->view('dashboard',$user_data);
 	}
-	function create()
+	function createUser()
 	{
 		$data['title'] = "Add User Page::StockManagement";
 		$this->load->library('form_validation');
 		$this->load->view('user/addUser', $data);
 	}
-	function store(){
+	function storeUser(){
 		$usersall = new UserModel;
 		$usersall->AddUser();
 		redirect(base_url());
 	}
-	function delete($id){
+	function deleteUser($id){
 		$usersall = new UserModel;
 		$usersall->DeleteUser($id);
 		if($usersall){
 			redirect(base_url());
 		}
 	}
-	function edit($id){
-		$data['title'] = "Product Update Page::StockManagement";
+	function editUser($id){
+		$data['title'] = "User Update Page::StockManagement";
 		$usersall = new UserModel;
 		$arrData['registered_details'] = $usersall->getEachUserDetail($id);
 		$this->load->view('user/editUser', $arrData);
 	}
-	function update($id){
+	function updateUser($id){
 		$usersall = new UserModel;
 		$now=$usersall->UpdateUser($id);
-		if (!$now) {
-			echo "Updated not okay";
+		if($now){
+			redirect(base_url());
 		}
-		redirect(base_url());
 	}
 }
