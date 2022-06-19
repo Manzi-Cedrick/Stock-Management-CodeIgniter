@@ -31,9 +31,9 @@ class StockInv extends CI_Controller {
 		$user_data['title'] = "Dashboard";
         return $this->load->view('dashboard',$user_data);
 	}
-	function createUser()
+	function createInv()
 	{
-		$data['title'] = "Add User Page::StockManagement";
+		$data['title'] = "Add Stock Page::StockManagement";
 		$this->load->library('form_validation');
 		$this->load->view('user/addUser', $data);
 	}
