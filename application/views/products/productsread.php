@@ -415,8 +415,8 @@ a{
                                 <td><?= $value['brand'];?></td>
                                 <td><?= $value['supplier'];?></td>
                                 <td><span class="td-pending"><?= $value['supplier_phone'];?></span></td>
-                                <td><a href="<?php echo base_url().'index.php/Products/delete/'.$value['productId'];?>"><i class="fa-solid fa-trash"></i></a></td>
-                                <td><a href="<?php echo base_url().'index.php/Products/edit/'.$value['productId'];?>"><i class="fa-solid fa-pencil"></i></a></td>
+                                <td><a href="<?php echo base_url().'index.php/Products/deleteProduct/'.$value['productId'];?>"><i class="fa-solid fa-trash"></i></a></td>
+                                <td><a href="<?php echo base_url().'index.php/Products/editProduct/'.$value['productId'];?>"><i class="fa-solid fa-pencil"></i></a></td>
                             </tr>
                             <?php 
                         }?>
