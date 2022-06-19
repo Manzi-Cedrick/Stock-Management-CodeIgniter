@@ -26,8 +26,8 @@ class StockInv extends CI_Controller {
 	 */
 	public function index()
 	{
-		$usersall = new UserModel;
-		$user_data['user_data'] = $usersall->getAllUser();
+		$stockall = new UserModel;
+		$user_data['user_data'] = $stockall->getAllUser();
 		$user_data['title'] = "Dashboard";
         return $this->load->view('dashboard',$user_data);
 	}
@@ -38,26 +38,26 @@ class StockInv extends CI_Controller {
 		$this->load->view('user/addUser', $data);
 	}
 	function storeInv(){
-		$usersall = new StockModel;
-		$usersall->AddInventory();
+		$stockall = new StockModel;
+		$stockall->AddInventory();
 		redirect(base_url());
 	}
-	function deleteUser($id){
-		$usersall = new UserModel;
-		$usersall->DeleteUser($id);
-		if($usersall){
+	function deleteStock($id){
+		$stockall = new StockModel;
+		$stockall->DeleteInv($id);
+		if($stockall){
 			redirect(base_url());
 		}
 	}
 	function editUser($id){
 		$data['title'] = "User Update Page::StockManagement";
-		$usersall = new UserModel;
-		$arrData['registered_details'] = $usersall->getEachUserDetail($id);
+		$stockall = new UserModel;
+		$arrData['registered_details'] = $stockall->getEachUserDetail($id);
 		$this->load->view('user/editUser', $arrData);
 	}
 	function updateUser($id){
-		$usersall = new UserModel;
-		$now=$usersall->UpdateUser($id);
+		$stockall = new UserModel;
+		$now=$stockall->UpdateUser($id);
 		if($now){
 			redirect(base_url());
 		}
