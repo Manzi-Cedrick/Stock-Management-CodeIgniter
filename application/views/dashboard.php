@@ -389,7 +389,7 @@ a{
             <div class="user-all">
                 <div class="users-now">
                     <span>Admins</span>
-                    <button><a href="<?php echo base_url().'index.php/Dashboard/create';?>"><i class="fa-solid fa-plus" style="padding: 0 0.5em;"></i> Add User</a></button>
+                    <button><a href="<?php echo base_url().'index.php/Dashboard/createUser';?>"><i class="fa-solid fa-plus" style="padding: 0 0.5em;"></i> Add User</a></button>
                 </div>
                 <div class="users-sort">
                     <div>
@@ -426,8 +426,8 @@ a{
                                 <td><?= $user['gender'] ?></td>
                                 <td><?= $user['telephone'] ?></td>
                                 <td><?= $user['username'] ?></td>
-                                <td><a href="<?php echo base_url().'index.php/Dashboard/delete/'.$user['userId'];?>"><i class="fa-solid fa-trash">D</i></a></td>
-                                <td><a href="<?php echo base_url().'index.php/Dashboard/edit/'.$user['userId'];?>"><i class="fa-solid fa-pencil">U</i></a></td>
+                                <td><a href="<?php echo base_url().'index.php/Dashboard/deleteUser/'.$user['userId'];?>"><i class="fa-solid fa-trash">D</i></a></td>
+                                <td><a href="<?php echo base_url().'index.php/Dashboard/editUser/'.$user['userId'];?>"><i class="fa-solid fa-pencil">U</i></a></td>
                             </tr>
                             <?php } ?>
                         </tbody>
