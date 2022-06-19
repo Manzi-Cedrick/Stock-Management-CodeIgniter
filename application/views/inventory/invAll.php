@@ -14,7 +14,7 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-*{
+        *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -236,6 +236,7 @@ li:hover{
     border: none;
 }
 a{
+    /* color: red; */
     text-decoration: none;
 }
 /* Responsive */
@@ -375,16 +376,19 @@ a{
             </div>
             <a href="<?= base_url().'index.php/Products/index';?>"><div class="Order">
                 <p>Products</p>
+                <span></span>
             </div></a>
-            <div class="Order">
+            <a href="<?= base_url().'index.php/StockInv/index';?>"><div class="Order">
                 <p>Inventory</p>
                 <span><?= count($stockData) ?></span>
-            </div>
+            </div></a>
             <div class="Order">
                 <p>Outgoing</p>
+                <span></span>
            </div>
            <a href="<?= base_url()?>"><div class="Order">
                 <p>Stock Admins</p>
+                <span></span>
             </div></a>
         </div>
         <div class="body-all">
@@ -408,8 +412,8 @@ a{
                             <tr>
                                 <td><?= $value['quantity'];?></td>
                                 <td><?= $value['productId'];?></td>
-                                <td><a href="<?php echo base_url().'index.php/StockInv/deleteStock/'.$value['productId'];?>"><i class="fa-solid fa-trash"></i></a></td>
-                                <td><a href="<?php echo base_url().'index.php/StockInv/editStock/'.$value['productId'];?>"><i class="fa-solid fa-pencil"></i></a></td>
+                                <td><a href="<?php echo base_url().'index.php/StockInv/deleteStock/'.$value['inventory_id'];?>"><i class="fa-solid fa-trash"></i></a></td>
+                                <td><a href="<?php echo base_url().'index.php/StockInv/editStock/'.$value['inventory_id'];?>"><i class="fa-solid fa-pencil"></i></a></td>
                             </tr>
                             <?php 
                         }?>

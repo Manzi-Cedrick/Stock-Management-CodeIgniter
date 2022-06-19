@@ -34,5 +34,9 @@ class StockModel extends CI_Model {
             return true;
         };
     }
+    public function getProductData(){
+        $query = $this->db->get('products');
+        return $query->result_array();
+    }
 }
 ?>
