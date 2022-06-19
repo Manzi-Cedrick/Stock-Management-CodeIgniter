@@ -25,7 +25,6 @@ class ProductModel extends CI_Model {
         );
         $this->db->where('productId',$id);
         return $this->db->update('products',$data);
-        
     }
     public function getEachProductDetails($id){
         $this->db->select('*');

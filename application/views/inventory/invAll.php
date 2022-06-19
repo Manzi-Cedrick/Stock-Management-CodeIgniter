@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><?= $titles ?></title>
+    <title><?= $title ?></title>
     <link rel="stylesheet" href="./dashboard.css" />
     <script src="https://kit.fontawesome.com/db1fd6b42b.js" crossorigin="anonymous"></script> <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css"/>
@@ -375,26 +375,23 @@ a{
             </div>
             <a href="<?= base_url().'index.php/Products/index';?>"><div class="Order">
                 <p>Products</p>
-                <span><?= count($data) ?></span>
             </div></a>
             <div class="Order">
                 <p>Inventory</p>
-                <span></span>
+                <span><?= count($stockData) ?></span>
             </div>
             <div class="Order">
                 <p>Outgoing</p>
-                <span></span>
            </div>
            <a href="<?= base_url()?>"><div class="Order">
                 <p>Stock Admins</p>
-                <span></span>
             </div></a>
         </div>
         <div class="body-all">
             <div class="user-all">
                 <div class="users-now">
                     <span>Inventory</span>
-                    <button><a href="<?php echo base_url().'index.php/StockInv/createInv';?>"><i class="fa-solid fa-plus" style="padding: 0 0.5em;"></i> Add Product</a></button>
+                    <button><a href="<?php echo base_url().'index.php/StockInv/createInv';?>"><i class="fa-solid fa-plus" style="padding: 0 0.5em;"></i> Add Inventory</a></button>
                 </div>
                 <div class="table-wrapper">
                     <table class="fl-table">
