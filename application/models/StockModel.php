@@ -8,11 +8,16 @@ class StockModel extends CI_Model {
         return $query->result_array();
     }
     public function AddInventory(){
-        $data = array(
-            'quantity'=>$this->input->post('quantity'),
-            'productId'=>$this->input->post('productId')
-        );
-        return $this->db->insert('stk_inventory', $data);
+		$this->load->library('form_validation');
+        $this->form_validation->set_rules('quantity', 'Quantity Required', 'required');
+        $this->form_validation->set_rules('productId', 'Product Required', 'required');
+        if($this->form_validation->run()== TRUE){
+            $data = array(
+                'quantity'=>$this->input->post('quantity'),
+                'productId'=>$this->input->post('productId')
+            );
+            return $this->db->insert('stk_inventory', $data);
+        }
     }
     public function UpdateInv($id){
         $data = array(
