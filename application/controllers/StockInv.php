@@ -37,7 +37,7 @@ class StockInv extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->load->view('user/addUser', $data);
 	}
-	function storeUser(){
+	function storeInv(){
 		$usersall = new UserModel;
 		$usersall->AddUser();
 		redirect(base_url());
