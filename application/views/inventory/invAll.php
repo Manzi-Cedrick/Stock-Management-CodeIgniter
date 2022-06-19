@@ -1,4 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><?= $titles ?></title>
+    <link rel="stylesheet" href="./dashboard.css" />
+    <script src="https://kit.fontawesome.com/db1fd6b42b.js" crossorigin="anonymous"></script> <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -149,6 +164,9 @@ li:hover{
     outline: none;
     border-radius:5px;
 }
+.users-now a{
+    color: white;
+}
 .table-wrapper{
     background: white;
     margin: 0 auto;
@@ -216,6 +234,9 @@ li:hover{
     padding: 0.7em;
     border-radius: 12px;
     border: none;
+}
+a{
+    text-decoration: none;
 }
 /* Responsive */
 
@@ -323,4 +344,90 @@ li:hover{
         font-size: 5px;
     }
 }
+    </style>
+</head>
+<body>
+    <div class="App">
+        <div class="Navbar-header">
+            <header>
+            <ul>
+                    <li><a href="<?php echo base_url()?>"><i class="fa-solid fa-users"></i><span>Users</span></a></li>
+                    <li><a href="<?php echo base_url().'index.php/Products/index'?>"><i class="fa-solid fa-cart-plus"></i><span>Products</span></a></li>
+                    <li><a href="<?php echo base_url().'index.php/StockInv/index'?>"><i class="fa-solid fa-clipboard"></i><span>Inventory</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-outdent"></i><span>Outgoing</span></a></li>
+                </ul>
+            </header>
+            <div class="Appnav">
+                <div class="nav">
+                    <div class="user">
+                        <i class="fa-solid fa-search"></i>
+                        <i class="fa-solid fa-bell"></i>
+                        <img src="../giraffeee.jpg" alt="" class="doctor" />
+                        <span>Paul</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="whole">
+        <div class="SideBar">
+            <div class="LogoContainer">
+                <h2>Stock Management</h2>
+            </div>
+            <a href="<?= base_url().'index.php/Products/index';?>"><div class="Order">
+                <p>Products</p>
+                <span><?= count($data) ?></span>
+            </div></a>
+            <div class="Order">
+                <p>Inventory</p>
+                <span></span>
+            </div>
+            <div class="Order">
+                <p>Outgoing</p>
+                <span></span>
+           </div>
+           <a href="<?= base_url()?>"><div class="Order">
+                <p>Stock Admins</p>
+                <span></span>
+            </div></a>
+        </div>
+        <div class="body-all">
+            <div class="user-all">
+                <div class="users-now">
+                    <span>Inventory</span>
+                    <button><a href="<?php echo base_url().'index.php/StockInv/createInv';?>"><i class="fa-solid fa-plus" style="padding: 0 0.5em;"></i> Add Product</a></button>
+                </div>
+                <div class="table-wrapper">
+                    <table class="fl-table">
+                        <thead>
+                            <tr className="heads">
+                                <th>Quantity</th>
+                                <th>ProductID</th>
+                                <th colSpan="2">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php 
+                             foreach ($stockData as $value){?>
+                            <tr>
+                                <td><?= $value['quantity'];?></td>
+                                <td><?= $value['productId'];?></td>
+                                <td><a href="<?php echo base_url().'index.php/StockInv/deleteStock/'.$value['productId'];?>"><i class="fa-solid fa-trash"></i></a></td>
+                                <td><a href="<?php echo base_url().'index.php/StockInv/editStock/'.$value['productId'];?>"><i class="fa-solid fa-pencil"></i></a></td>
+                            </tr>
+                            <?php 
+                        }?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+                        <script type='text/javascript'>
+                $(document).ready(function() {
+                    $('table').DataTable();
+                });</script>
+   
+</body>
 
+</html>

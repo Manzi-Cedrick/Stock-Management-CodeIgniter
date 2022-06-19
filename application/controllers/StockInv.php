@@ -40,13 +40,13 @@ class StockInv extends CI_Controller {
 	function storeInv(){
 		$stockall = new StockModel;
 		$stockall->AddInventory();
-		redirect(base_url());
+		redirect(base_url().'index.php/StockInv/index');
 	}
 	function deleteStock($id){
 		$stockall = new StockModel;
 		$stockall->DeleteInv($id);
 		if($stockall){
-			redirect(base_url());
+			redirect(base_url().'index.php/StockInv/index');
 		}
 	}
 	function editStock($id){
@@ -59,7 +59,7 @@ class StockInv extends CI_Controller {
 		$stockall = new StockModel;
 		$now=$stockall->UpdateInv($id);
 		if($now){
-			redirect(base_url());
+			redirect(base_url().'index.php/StockInv/index');
 		}
 	}
 }
