@@ -27,15 +27,15 @@ class StockInv extends CI_Controller {
 	public function index()
 	{
 		$stockall = new UserModel;
-		$user_data['user_data'] = $stockall->getAllUser();
-		$user_data['title'] = "Dashboard";
-        return $this->load->view('dashboard',$user_data);
+		$stockData['stockData'] = $stockall->getAllUser();
+		$stockData['title'] = "Stock Inventory";
+        return $this->load->view('inventory/invAll',$stockData);
 	}
 	function createInv()
 	{
 		$data['title'] = "Add Stock Page::StockManagement";
 		$this->load->library('form_validation');
-		$this->load->view('user/addUser', $data);
+		$this->load->view('inventory/invAdd', $data);
 	}
 	function storeInv(){
 		$stockall = new StockModel;
@@ -49,15 +49,15 @@ class StockInv extends CI_Controller {
 			redirect(base_url());
 		}
 	}
-	function editUser($id){
-		$data['title'] = "User Update Page::StockManagement";
-		$stockall = new UserModel;
-		$arrData['registered_details'] = $stockall->getEachUserDetail($id);
-		$this->load->view('user/editUser', $arrData);
+	function editStock($id){
+		$data['title'] = "Stock Update Page::StockManagement";
+		$stockall = new StockModel;
+		$arrData['registered_details'] = $stockall->getEachInv($id);
+		$this->load->view('inventory/invEdit', $arrData);
 	}
-	function updateUser($id){
-		$stockall = new UserModel;
-		$now=$stockall->UpdateUser($id);
+	function updateStock($id){
+		$stockall = new StockModel;
+		$now=$stockall->UpdateInv($id);
 		if($now){
 			redirect(base_url());
 		}
