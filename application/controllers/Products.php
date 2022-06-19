@@ -31,31 +31,31 @@ class Products extends CI_Controller
 		$data['data'] = $products->getProducts();
 		$this->load->view('products/productsread', $data);
 	}
-	function create()
+	function createProduct()
 	{
 		$data['title'] = "Product Page::StockManagement";
 		$this->load->library('form_validation');
 		$this->load->view('products/addproduct', $data);
 	}
-	function store(){
+	function storeProduct(){
 		$products = new ProductModel;
 		$products->AddProduct();
 		redirect(base_url().'index.php/Products/index');
 	}
-	function delete($id){
+	function deleteProduct($id){
 		$products = new ProductModel;
 		$products->DeleteProduct($id);
 		if($products){
 			redirect(base_url().'index.php/Products/index');
 		}
 	}
-	function edit($id){
+	function editProduct($id){
 		$data['title'] = "Product Update Page::StockManagement";
 		$products = new ProductModel;
 		$arrData['registered_details'] = $products->getEachProductDetails($id);
 		$this->load->view('products/updateProduct', $arrData);
 	}
-	function update($id){
+	function updateProduct($id){
 		$products = new ProductModel;
 		$products->UpdateProduct($id);
 		redirect(base_url().'index.php/Products/index');
