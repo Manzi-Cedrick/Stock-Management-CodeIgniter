@@ -35,7 +35,6 @@ class StockInv extends CI_Controller {
 	{
 		$stockall = new StockModel;
 		$data['title'] = "Add Stock Page::StockManagement";
-		$this->load->library('form_validation');
 		$data['productData']= $stockall->getProductData();
 		$this->load->view('inventory/invAdd', $data);
 	}
