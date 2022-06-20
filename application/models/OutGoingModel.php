@@ -7,6 +7,10 @@ class OutGoingModel extends CI_Model {
         $query = $this->db->get('outgoing');
         return $query->result_array();
     }
+    public function getOutgoingReport(){
+        $query = $this->db->get('outgoing');
+        return $query->result();
+    }
     public function addOutGoing(){
 		$this->load->library('form_validation');
         $this->form_validation->set_rules('quantity', 'Quantity Required', 'required');
