@@ -7,6 +7,10 @@ class UserModel extends CI_Model {
         $query = $this->db->get('users');
         return $query->result_array();
     }
+    public function getAllUserReport(){
+        $query = $this->db->get('users');
+        return $query->result();
+    }
     public function AddUser(){
         $data = array(
             'firstName'=>$this->input->post('firstName'),
