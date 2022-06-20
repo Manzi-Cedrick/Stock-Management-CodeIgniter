@@ -214,6 +214,10 @@ li:hover{
     padding-left: 6.5em;
     color: rgba(0, 0, 0, 0.217);
 }
+.btn-products{
+    display: flex;
+    gap: 0 1em;
+}
 .users-sort {
     background: white;
     padding: 1em 0.5em;
@@ -389,7 +393,10 @@ a{
             <div class="user-all">
                 <div class="users-now">
                     <span>Admins</span>
+                    <div class="btn-products">
                     <button><a href="<?php echo base_url().'index.php/Dashboard/createUser';?>"><i class="fa-solid fa-plus" style="padding: 0 0.5em;"></i> Add User</a></button>
+                    <button><a href="<?php echo base_url().'index.php/Dashboard/UserReport';?>">Print Report</a></button>
+                    </div>
                 </div>
                 <div class="users-sort">
                     <div>
@@ -426,8 +433,8 @@ a{
                                 <td><?= $user['gender'] ?></td>
                                 <td><?= $user['telephone'] ?></td>
                                 <td><?= $user['username'] ?></td>
-                                <td><a href="<?php echo base_url().'index.php/Dashboard/deleteUser/'.$user['userId'];?>"><i class="fa-solid fa-trash">D</i></a></td>
-                                <td><a href="<?php echo base_url().'index.php/Dashboard/editUser/'.$user['userId'];?>"><i class="fa-solid fa-pencil">U</i></a></td>
+                                <td><a href="<?php echo base_url().'index.php/Dashboard/deleteUser/'.$user['userId'];?>"><i class="fa-solid fa-trash"></i></a></td>
+                                <td><a href="<?php echo base_url().'index.php/Dashboard/editUser/'.$user['userId'];?>"><i class="fa-solid fa-pencil"></i></a></td>
                             </tr>
                             <?php } ?>
                         </tbody>
