@@ -7,6 +7,10 @@ class ProductModel extends CI_Model {
         $query = $this->db->get('products');
         return $query->result_array();
     }
+    public function getProductData(){
+        $query = $this->db->get('products');
+        return $query->result();
+    }
     public function AddProduct(){
         $this->load->library('form_validation');
         $this->form_validation->set_rules('productName', 'Quantity Required', 'required');
