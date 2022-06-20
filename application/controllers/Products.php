@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
 class Products extends CI_Controller
 {
 	public function __construct(){
@@ -59,5 +58,24 @@ class Products extends CI_Controller
 		$products = new ProductModel;
 		$products->UpdateProduct($id);
 		redirect(base_url().'index.php/Products/index');
+	}
+	function ProductReport(){
+		$pdf= new FPDF();
+		$pdf->AddPage();
+		$pdf->SetFont('Arial','B',10);
+		$pdf->Cell(195,10,'Products Report',1,1,'C');
+		$pdf->Cell(15,10,'Product Name',1,0,'C');
+		$pdf->Cell(65,10,'brand',1,0,'C');
+		$pdf->Cell(60,10,'supplier',1,0,'C');
+		$pdf->Cell(55,10,'supplier Tel',1,1,'C');
+		$products = new ProductModel;
+		$data['data'] = $products->getProducts();
+		foreach($data as $product){
+		$pdf->Cell(15,10,$product['product_Name'],1,0,'C');
+		$pdf->Cell(65,10,$product['brand'],1,0,'C');
+		$pdf->Cell(60,10,$product['supplier'],1,0,'C');
+		$pdf->Cell(55,10,$product['supplier_phone'],1,1,'C');
+		}
+		$pdf->Output('productReport.pdf','I');
 	}
 }

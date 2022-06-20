@@ -395,6 +395,7 @@ a{
                 <div class="users-now">
                     <span>Products</span>
                     <button><a href="<?php echo base_url().'index.php/Products/createProduct';?>"><i class="fa-solid fa-plus" style="padding: 0 0.5em;"></i> Add Product</a></button>
+                    <button><a href="<?php echo base_url().'index.php/Products/ProductReport';?>"><i class="fa-solid fa-plus" style="padding: 0 0.5em;"></i>Show PDF</a></button>
                 </div>
                 <div class="table-wrapper">
                     <table class="fl-table">
