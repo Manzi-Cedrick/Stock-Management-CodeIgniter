@@ -382,10 +382,10 @@ a{
                 <p>Inventory</p>
                 <span><?= count($stockData) ?></span>
             </div></a>
-            <div class="Order">
+            <a href="<?= base_url().'index.php/Outgoing/index'?>"><div class="Order">
                 <p>Outgoing</p>
                 <span></span>
-           </div>
+            </div></a>
            <a href="<?= base_url()?>"><div class="Order">
                 <p>Stock Admins</p>
                 <span></span>
