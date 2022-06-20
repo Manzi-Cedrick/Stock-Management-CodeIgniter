@@ -395,7 +395,10 @@ a{
             <div class="user-all">
                 <div class="users-now">
                     <span>Inventory</span>
-                    <button><a href="<?php echo base_url().'index.php/StockInv/createInv';?>"><i class="fa-solid fa-plus" style="padding: 0 0.5em;"></i> Add Inventory</a></button>
+                    <div class="btn-products">
+                    <button><a href="<?php echo base_url().'index.php/StockInv/createInv';?>"><i class="fa-solid fa-plus" style="padding: 0 0.5em;"></i> Add Stock</a></button>
+                    <button><a href="<?php echo base_url().'index.php/StockInv/StockReport';?>">Print Report</a></button>
+                    </div>
                 </div>
                 <div class="table-wrapper">
                     <table class="fl-table">
