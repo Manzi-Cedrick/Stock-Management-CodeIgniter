@@ -156,6 +156,10 @@ li:hover{
     display: flex;
     justify-content: space-between;
 }
+.btn-products{
+    display: flex;
+    gap: 0 1em;
+}
 .users-now button{
     padding: 1em 2em;
     color: white;
@@ -165,6 +169,7 @@ li:hover{
     border-radius:5px;
 }
 .users-now a{
+    text-decoration: none;
     color: white;
 }
 .table-wrapper{
@@ -394,8 +399,10 @@ a{
             <div class="user-all">
                 <div class="users-now">
                     <span>Products</span>
+                    <div class="btn-products">
                     <button><a href="<?php echo base_url().'index.php/Products/createProduct';?>"><i class="fa-solid fa-plus" style="padding: 0 0.5em;"></i> Add Product</a></button>
-                    <button><a href="<?php echo base_url().'index.php/Products/ProductReport';?>"><i class="fa-solid fa-plus" style="padding: 0 0.5em;"></i>Show PDF</a></button>
+                    <button><a href="<?php echo base_url().'index.php/Products/ProductReport';?>">Print Report</a></button>
+                    </div>
                 </div>
                 <div class="table-wrapper">
                     <table class="fl-table">
