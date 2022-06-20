@@ -59,23 +59,29 @@ class Products extends CI_Controller
 		$products->UpdateProduct($id);
 		redirect(base_url().'index.php/Products/index');
 	}
-	function ProductReport(){
-		$pdf= new FPDF();
+	function ProductReport(){	
+		ob_start();
+		require('pdf/fpdf.php');	
+		$pdf= new FPDF('p','');
 		$pdf->AddPage();
 		$pdf->SetFont('Arial','B',10);
 		$pdf->Cell(195,10,'Products Report',1,1,'C');
-		$pdf->Cell(15,10,'Product Name',1,0,'C');
-		$pdf->Cell(65,10,'brand',1,0,'C');
-		$pdf->Cell(60,10,'supplier',1,0,'C');
-		$pdf->Cell(55,10,'supplier Tel',1,1,'C');
+		$pdf->Cell(25,10,'Product NO',1,0,'C');
+		$pdf->Cell(55,10,'Product Name',1,0,'C');
+		$pdf->Cell(30,10,'brand',1,0,'C');
+		$pdf->Cell(40,10,'supplier',1,0,'C');
+		$pdf->Cell(45,10,'supplier Tel',1,1,'C');
 		$products = new ProductModel;
-		$data['data'] = $products->getProducts();
-		foreach($data as $product){
-		$pdf->Cell(15,10,$product['product_Name'],1,0,'C');
-		$pdf->Cell(65,10,$product['brand'],1,0,'C');
-		$pdf->Cell(60,10,$product['supplier'],1,0,'C');
-		$pdf->Cell(55,10,$product['supplier_phone'],1,1,'C');
+		$data= $products->getProductData();
+		// var_dump($data);
+		foreach($data as $productData){
+			$pdf->Cell(25,10, $productData->productId,1,0,'C');
+			$pdf->Cell(55,10, $productData->product_Name,1,0,'C');
+			$pdf->Cell(30,10, $productData->brand,1,0,'C');
+			$pdf->Cell(40,10, $productData->supplier,1,0,'C');
+			$pdf->Cell(45,10,$productData->supplier_phone,1,1,'C');
 		}
 		$pdf->Output('productReport.pdf','I');
+		ob_end_flush();
 	}
 }
