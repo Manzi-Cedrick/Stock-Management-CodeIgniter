@@ -54,7 +54,7 @@ class Outgoing extends CI_Controller {
 		$data['title'] = "Stock Update Page::StockManagement";
 		$outgoingall = new OutGoingModel;
 		$arrData['registered_details'] = $outgoingall->getEachOutgoing($id);
-		$this->load->view('inventory/invEdit', $arrData);
+		$this->load->view('outgoing/editOutgoing', $arrData);
 	}
 	function updateOut($id){
 		$outgoingall = new OutGoingModel;
