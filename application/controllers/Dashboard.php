@@ -62,4 +62,31 @@ class Dashboard extends CI_Controller {
 			redirect(base_url());
 		}
 	}
+	function UserReport(){	
+		ob_start();
+		require('pdf/fpdf.php');	
+		$pdf= new FPDF();
+		$pdf->AddPage();
+		$pdf->SetFont('Arial','B',10);
+		$pdf->Cell(195,10,'User Report',1,1,'C');
+		$pdf->Cell(15,10,'NO',1,0,'C');
+		$pdf->Cell(30,10,'FirstName',1,0,'C');
+		$pdf->Cell(30,10,'lastName',1,0,'C');
+		$pdf->Cell(40,10,'email',1,0,'C');
+		$pdf->Cell(20,10,'username',1,0,'C');
+		$pdf->Cell(25,10,'Tel',1,1,'C');
+		$products = new UserModel;
+		$data= $products->getAllUserReport();
+		foreach($data as $productData){
+			$pdf->Cell(15,10, $productData->userId,1,0,'C');
+			$pdf->Cell(30,10, $productData->firstName,1,0,'C');
+			$pdf->Cell(30,10, $productData->lastName,1,0,'C');
+			$pdf->Cell(40,10, $productData->email,1,0,'C');
+			$pdf->Cell(20,10,$productData->telephone,1,0,'C');
+			$pdf->Cell(20,10,$productData->gender,1,0,'C');
+			$pdf->Cell(45,10,$productData->username,1,0,'C');
+		}
+		$pdf->Output('productReport.pdf','I');
+		ob_end_flush();
+	}
 }
