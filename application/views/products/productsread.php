@@ -377,14 +377,14 @@ a{
                 <p>Products</p>
                 <span><?= count($data) ?></span>
             </div></a>
-            <div class="Order">
-                <p>Inventory</p>
+            <a href="<?= base_url().'index.php/StockInv/index'?>"><div class="Order">
+                <p>Stock Inventory</p>
                 <span></span>
-            </div>
-            <div class="Order">
+            </div></a>
+            <a href="<?= base_url().'index.php/Outgoing/index'?>"><div class="Order">
                 <p>Outgoing</p>
                 <span></span>
-           </div>
+            </div></a>
            <a href="<?= base_url()?>"><div class="Order">
                 <p>Stock Admins</p>
                 <span></span>
