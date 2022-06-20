@@ -43,5 +43,9 @@ class StockModel extends CI_Model {
         $query = $this->db->get('products');
         return $query->result_array();
     }
+    public function getStockData(){
+        $query = $this->db->get('stk_inventory');
+        return $query->result();
+    }
 }
 ?>
