@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class StockInv extends CI_Controller {
+class OutGoingInv extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
         $this->load->library('form_validation');
-        $this->load->model('StockModel');
+        $this->load->model('OutGoingModel');
     }
 
 	/**
@@ -26,41 +26,41 @@ class StockInv extends CI_Controller {
 	 */
 	public function index()
 	{
-		$stockall = new StockModel;
-		$stockData['stockData'] = $stockall->getInventory();
+		$outgoingall = new OutGoingModel;
+		$stockData['stockData'] = $outgoingall->getOutgoing();
 		$stockData['title'] = "Stock Inventory";
-        return $this->load->view('inventory/invAll',$stockData);
+        return $this->load->view('outgoing/list',$stockData);
 	}
-	function createInv()
+	function createOut()
 	{
-		$stockall = new StockModel;
+		$outgoingall = new OutGoingModel;
 		$data['title'] = "Add Stock Page::StockManagement";
-		$data['productData']= $stockall->getProductData();
-		$this->load->view('inventory/invAdd', $data);
+		$data['productData']= $outgoingall->getProductData();
+		$this->load->view('outgoing/addOutgoing', $data);
 	}
-	function storeInv(){
-		$stockall = new StockModel;
-		$stockall->AddInventory();
-		redirect(base_url().'index.php/StockInv/index');
+	function storeOut(){
+		$outgoingall = new OutGoingModel;
+		$outgoingall->addOutGoing();
+		redirect(base_url().'index.php/Outgoing/index');
 	}
-	function deleteStock($id){
-		$stockall = new StockModel;
-		$stockall->DeleteInv($id);
-		if($stockall){
-			redirect(base_url().'index.php/StockInv/index');
+	function deleteOut($id){
+		$outgoingall = new OutGoingModel;
+		$outgoingall->deleteOutgoing($id);
+		if($outgoingall){
+			redirect(base_url().'index.php/Outgoing/index');
 		}
 	}
-	function editStock($id){
+	function editOut($id){
 		$data['title'] = "Stock Update Page::StockManagement";
-		$stockall = new StockModel;
-		$arrData['registered_details'] = $stockall->getEachInv($id);
+		$outgoingall = new OutGoingModel;
+		$arrData['registered_details'] = $outgoingall->getEachOutgoing($id);
 		$this->load->view('inventory/invEdit', $arrData);
 	}
-	function updateStock($id){
-		$stockall = new StockModel;
-		$now=$stockall->UpdateInv($id);
+	function updateOut($id){
+		$outgoingall = new OutGoingModel;
+		$now=$outgoingall->updateOutgoing($id);
 		if($now){
-			redirect(base_url().'index.php/StockInv/index');
+			redirect(base_url().'index.php/Outgoing/index');
 		}
 	}
 }
