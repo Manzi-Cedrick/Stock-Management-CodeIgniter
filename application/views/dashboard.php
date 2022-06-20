@@ -349,7 +349,7 @@ a{
                     <li><a href="<?php echo base_url()?>"><i class="fa-solid fa-users"></i><span>Users</span></a></li>
                     <li><a href="<?php echo base_url().'index.php/Products/index'?>"><i class="fa-solid fa-cart-plus"></i><span>Products</span></a></li>
                     <li><a href="<?php echo base_url().'index.php/StockInv/index'?>"><i class="fa-solid fa-clipboard"></i><span>Inventory</span></a></li>
-                    <li><a href="#"><i class="fa-solid fa-outdent"></i><span>Outgoing</span></a></li>
+                    <li><a href="<?php echo base_url().'index.php/Outgoing/index'?>"><i class="fa-solid fa-outdent"></i><span>Outgoing</span></a></li>
                 </ul>
             </header>
             <div class="Appnav">
@@ -372,7 +372,7 @@ a{
                 <p>Products</p>
                 <span></span>
             </div></a>
-            <<a href="<?= base_url().'index.php/StockInv/index'?>"><div class="Order">
+            <a href="<?= base_url().'index.php/StockInv/index'?>"><div class="Order">
                 <p>Stock Inventory</p>
                 <span></span>
             </div></a>
