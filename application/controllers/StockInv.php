@@ -63,4 +63,24 @@ class StockInv extends CI_Controller {
 			redirect(base_url().'index.php/StockInv/index');
 		}
 	}
+	function StockReport(){	
+		ob_start();
+		require('pdf/fpdf.php');	
+		$pdf= new FPDF();
+		$pdf->AddPage();
+		$pdf->SetFont('Arial','B',10);
+		$pdf->Cell(100,20,'Stock Inventory Report',1,1,'C');
+		$pdf->Cell(25,10,'NO',1,0,'C');
+		$pdf->Cell(55,10,'Quantity',1,0,'C');
+		$pdf->Cell(20,10,'productId',1,0,'C');
+		$stockall = new StockModel;
+		$data= $stockall->getStockData();
+		foreach($data as $productData){
+			$pdf->Cell(25,10, $productData->inventory_id,1,0,'C');
+			$pdf->Cell(55,10, $productData->quantity,1,0,'C');
+			$pdf->Cell(20,10, $productData->productId,1,0,'C');
+		}
+		$pdf->Output('stockReport.pdf','I');
+		ob_end_flush();
+	}
 }
