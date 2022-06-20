@@ -62,7 +62,7 @@ class Products extends CI_Controller
 	function ProductReport(){	
 		ob_start();
 		require('pdf/fpdf.php');	
-		$pdf= new FPDF('p','');
+		$pdf= new FPDF();
 		$pdf->AddPage();
 		$pdf->SetFont('Arial','B',10);
 		$pdf->Cell(195,10,'Products Report',1,1,'C');
