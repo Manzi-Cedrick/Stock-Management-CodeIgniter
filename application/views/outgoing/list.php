@@ -240,7 +240,10 @@ a{
     text-decoration: none;
 }
 /* Responsive */
-
+.btn-products{
+    display: flex;
+    gap: 0 1em;
+}
 @media (max-width: 767px) {
     .fl-table {
         display: block;
@@ -395,7 +398,10 @@ a{
             <div class="user-all">
                 <div class="users-now">
                     <span>Outgoing</span>
-                    <button><a href="<?php echo base_url().'index.php/Outgoing/createOut';?>"><i class="fa-solid fa-plus" style="padding: 0 0.5em;"></i>Add Outgoing</a></button>
+                    <div class="btn-products">
+                    <button><a href="<?php echo base_url().'index.php/Outgoing/createOut';?>"><i class="fa-solid fa-plus" style="padding: 0 0.5em;"></i> Add to OutGoing </a></button>
+                    <button><a href="<?php echo base_url().'index.php/Outgoing/OutgoingReport';?>">Print Report</a></button>
+                    </div>
                 </div>
                 <div class="table-wrapper">
                     <table class="fl-table">
