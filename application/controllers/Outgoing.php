@@ -27,7 +27,7 @@ class OutGoingInv extends CI_Controller {
 	public function index()
 	{
 		$outgoingall = new OutGoingModel;
-		$stockData['stockData'] = $outgoingall->getOutgoing();
+		$stockData['outgoing'] = $outgoingall->getOutgoing();
 		$stockData['title'] = "Stock Inventory";
         return $this->load->view('outgoing/list',$stockData);
 	}
