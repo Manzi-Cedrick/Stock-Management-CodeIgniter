@@ -73,7 +73,6 @@ class Products extends CI_Controller
 		$pdf->Cell(45,10,'supplier Tel',1,1,'C');
 		$products = new ProductModel;
 		$data= $products->getProductData();
-		// var_dump($data);
 		foreach($data as $productData){
 			$pdf->Cell(25,10, $productData->productId,1,0,'C');
 			$pdf->Cell(55,10, $productData->product_Name,1,0,'C');
