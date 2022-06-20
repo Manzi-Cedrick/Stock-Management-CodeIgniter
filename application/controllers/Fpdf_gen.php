@@ -1,11 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Fpdf_test extends CI_Controller {
+class Fpdf_gen extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('OutGoingModel');
+        // $this->load->library('form_validation');
+        require_once APPPATH.'third_party/fpdf/';
+        $pdf= new FPDF();
+        $pdf->AddPage();
+        $CI= get_instance();
+        $CI->fpdf=$pdf;
     }
 
 	/**
@@ -23,12 +28,4 @@ class Fpdf_test extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/userguide3/general/urls.html
 	 */
-	public function index()
-	{
-		$outgoingall = new OutGoingModel;
-		$stockData['outgoing'] = $outgoingall->getOutgoing();
-		$stockData['title'] = "Stock Inventory";
-        $this->load->library('form_validation');
-        return $this->load->view('outgoing/list',$stockData);
-	}
 }
