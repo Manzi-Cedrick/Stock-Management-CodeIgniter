@@ -63,4 +63,24 @@ class Outgoing extends CI_Controller {
 			redirect(base_url().'index.php/Outgoing/index');
 		}
 	}
+	function OutgoingReport(){	
+		ob_start();
+		require('pdf/fpdf.php');	
+		$pdf= new FPDF();
+		$pdf->AddPage();
+		$pdf->SetFont('Arial','B',10);
+		$pdf->Cell(195,10,'Outgoing Report',1,1,'C');
+		$pdf->Cell(25,10,'NO',1,0,'C');
+		$pdf->Cell(55,10,'Quantity',1,0,'C');
+		$pdf->Cell(20,10,'productId',1,0,'C');
+		$outgoing = new OutGoingModel;
+		$data= $outgoing->getOutgoingReport();
+		foreach($data as $productData){
+			$pdf->Cell(25,10, $productData->outgoingId,1,0,'C');
+			$pdf->Cell(55,10, $productData->quantity,1,0,'C');
+			$pdf->Cell(30,10, $productData->productId,1,0,'C');
+		}
+		$pdf->Output('outgoingReport.pdf','I');
+		ob_end_flush();
+	}
 }
