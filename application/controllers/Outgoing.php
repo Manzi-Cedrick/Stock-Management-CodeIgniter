@@ -41,13 +41,13 @@ class Outgoing extends CI_Controller {
 	function storeOut(){
 		$outgoingall = new OutGoingModel;
 		$outgoingall->addOutGoing();
-		redirect(base_url().'index.php/Outgoing/index');
+		redirect(base_url('outgoing'));
 	}
 	function deleteOut($id){
 		$outgoingall = new OutGoingModel;
 		$outgoingall->deleteOutgoing($id);
 		if($outgoingall){
-			redirect(base_url().'index.php/Outgoing/index');
+			redirect(base_url('outgoing'));
 		}
 	}
 	function editOut($id){
@@ -60,7 +60,7 @@ class Outgoing extends CI_Controller {
 		$outgoingall = new OutGoingModel;
 		$now=$outgoingall->updateOutgoing($id);
 		if($now){
-			redirect(base_url().'index.php/Outgoing/index');
+			redirect(base_url('outgoing'));
 		}
 	}
 	function OutgoingReport(){	
