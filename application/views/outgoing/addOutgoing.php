@@ -71,7 +71,7 @@ a{
         <div>
             <h1>Add Outgoing</h1>
         </div>
-        <form action="<?= base_url().'index.php/Outgoing/storeOut'?>" method="post">
+        <form action="<?= base_url('outgoing/store')?>" method="post">
             <label>Quantity</label>
             <input type="number" name="quantity" placeholder="Add Product Name">
             <label>Product</label>
@@ -81,7 +81,7 @@ a{
                 <?php } ?>
             </select>
             <button class="btn add-btn" type="submit">Add</button>
-            <button class=" cancel-btn"><a href="<?php base_url().'index.php/StockInv/index'?>">Cancel</a></button>
+            <button class=" cancel-btn"><a href="<?php base_url('outgoing')?>">Cancel</a></button>
         </form>
     </div>
 </body>
