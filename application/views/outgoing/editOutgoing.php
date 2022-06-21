@@ -71,7 +71,7 @@ a{
         <div>
             <h1>Add Outgoing</h1>
         </div>
-        <form action="<?= base_url().'index.php/Outgoing/updateOut/'.$registered_details[0]['outgoingId']?>" method="post">
+        <form action="<?= base_url('outgoing/update/').$registered_details[0]['outgoingId']?>" method="post">
             <label>Quantity</label>
             <input type="number" name="quantity" placeholder="Add Product Name" value="<?= $registered_details[0]['quantity'] ?>">
             <label>Product</label>
@@ -79,7 +79,7 @@ a{
                 <option value="<?= $registered_details[0]['productId']?>"><?= $registered_details[0]['productId']?></option>
             </select>
             <button class="btn add-btn" type="submit">Add</button>
-            <button class=" cancel-btn"><a href="<?php base_url().'index.php/Outgoing/index'?>">Cancel</a></button>
+            <button class=" cancel-btn"><a href="<?php base_url('outgoing')?>">Cancel</a></button>
         </form>
     </div>
 </body>
