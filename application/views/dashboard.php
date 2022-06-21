@@ -1,5 +1,4 @@
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -351,9 +350,9 @@ a{
             <header>
             <ul>
                     <li><a href="<?php echo base_url()?>"><i class="fa-solid fa-users"></i><span>Users</span></a></li>
-                    <li><a href="<?php echo base_url().'index.php/Products/index'?>"><i class="fa-solid fa-cart-plus"></i><span>Products</span></a></li>
-                    <li><a href="<?php echo base_url().'index.php/StockInv/index'?>"><i class="fa-solid fa-clipboard"></i><span>Inventory</span></a></li>
-                    <li><a href="<?php echo base_url().'index.php/Outgoing/index'?>"><i class="fa-solid fa-outdent"></i><span>Outgoing</span></a></li>
+                    <li><a href="<?php echo base_url('products')?>"><i class="fa-solid fa-cart-plus"></i><span>Products</span></a></li>
+                    <li><a href="<?php echo base_url('stock')?>"><i class="fa-solid fa-clipboard"></i><span>Inventory</span></a></li>
+                    <li><a href="<?php echo base_url('outgoing')?>"><i class="fa-solid fa-outdent"></i><span>Outgoing</span></a></li>
                 </ul>
             </header>
             <div class="Appnav">
@@ -361,8 +360,8 @@ a{
                     <div class="user">
                         <i class="fa-solid fa-search"></i>
                         <i class="fa-solid fa-bell"></i>
-                        <img src="../giraffeee.jpg" alt="" class="doctor" />
-                        <span>Paul</span>
+                        <img src="<?= $user['login_data'][0]['profile']?>" alt="" class="doctor" />
+                        <span><?= $user['login_data'][0]['username']; ?></span>
                     </div>
                 </div>
             </div>
@@ -372,15 +371,15 @@ a{
             <div class="LogoContainer">
                 <h2>Stock Management</h2>
             </div>
-            <a href="<?= base_url().'index.php/Products/index';?>"><div class="Order">
+            <a href="<?= base_url('products');?>"><div class="Order">
                 <p>Products</p>
                 <span></span>
             </div></a>
-            <a href="<?= base_url().'index.php/StockInv/index'?>"><div class="Order">
+            <a href="<?= base_url('stock')?>"><div class="Order">
                 <p>Stock Inventory</p>
                 <span></span>
             </div></a>
-            <a href="<?= base_url().'index.php/Outgoing/index'?>"><div class="Order">
+            <a href="<?= base_url('outgoing')?>"><div class="Order">
                 <p>Outgoing</p>
                 <span></span>
             </div></a>
@@ -394,8 +393,8 @@ a{
                 <div class="users-now">
                     <span>Admins</span>
                     <div class="btn-products">
-                    <button><a href="<?php echo base_url().'index.php/Dashboard/createUser';?>"><i class="fa-solid fa-plus" style="padding: 0 0.5em;"></i> Add User</a></button>
-                    <button><a href="<?php echo base_url().'index.php/Dashboard/UserReport';?>">Print Report</a></button>
+                    <button><a href="<?php echo base_url('user/signup');?>"><i class="fa-solid fa-plus" style="padding: 0 0.5em;"></i> Add User</a></button>
+                    <button><a href="<?php echo base_url('user/report');?>">Print Report</a></button>
                     </div>
                 </div>
                 <div class="users-sort">
@@ -433,8 +432,8 @@ a{
                                 <td><?= $user['gender'] ?></td>
                                 <td><?= $user['telephone'] ?></td>
                                 <td><?= $user['username'] ?></td>
-                                <td><a href="<?php echo base_url().'index.php/Dashboard/deleteUser/'.$user['userId'];?>"><i class="fa-solid fa-trash"></i></a></td>
-                                <td><a href="<?php echo base_url().'index.php/Dashboard/editUser/'.$user['userId'];?>"><i class="fa-solid fa-pencil"></i></a></td>
+                                <td><a href="<?php echo base_url('users/delete/').$user['userId'];?>"><i class="fa-solid fa-trash"></i></a></td>
+                                <td><a href="<?php echo base_url('users/editUser/').$user['userId'];?>"><i class="fa-solid fa-pencil"></i></a></td>
                             </tr>
                             <?php } ?>
                         </tbody>
