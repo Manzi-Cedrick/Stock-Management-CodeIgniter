@@ -6,6 +6,7 @@ class Dashboard extends CI_Controller {
     {
         parent::__construct();
         $this->load->library('form_validation');
+        $this->load->helper('form');
         $this->load->model('UserModel');
     }
 
@@ -26,10 +27,15 @@ class Dashboard extends CI_Controller {
 	 */
 	public function index()
 	{
-		$usersall = new UserModel;
-		$user_data['user_data'] = $usersall->getAllUser();
-		$user_data['title'] = "Dashboard";
-        return $this->load->view('dashboard',$user_data);
+		if($this->session->userdata('user')){
+			$usersall = new UserModel;
+			$user_data['user_data'] = $usersall->getAllUser();
+			$user_data['user'] = $this->session->userdata('user');
+			$user_data['title'] = "Stock Management App";
+			return $this->load->view('dashboard',$user_data);
+		}else{
+			redirect(base_url().'user/login');
+		}
 	}
 	function createUser()
 	{
@@ -39,8 +45,22 @@ class Dashboard extends CI_Controller {
 	}
 	function storeUser(){
 		$usersall = new UserModel;
-		$usersall->AddUser();
-		redirect(base_url());
+		if ($usersall->AddUser()) {
+			redirect(base_url().'user/login');
+		}
+	}
+	function showLoginUser(){
+		$this->load->view('user/loginUser');
+	}
+	function loginUser(){
+		$usersall = new UserModel;
+		$selectedData['login_data']= $usersall->LoginUser();
+		if($selectedData['login_data'] != FALSE){
+			$this->session->set_userdata('user',$selectedData);
+			redirect(base_url());
+		}else{
+			redirect(base_url().'user/login');
+		}
 	}
 	function deleteUser($id){
 		$usersall = new UserModel;
