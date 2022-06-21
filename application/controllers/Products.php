@@ -39,13 +39,13 @@ class Products extends CI_Controller
 	function storeProduct(){
 		$products = new ProductModel;
 		$products->AddProduct();
-		redirect(base_url().'index.php/Products/index');
+		redirect(base_url('products'));
 	}
 	function deleteProduct($id){
 		$products = new ProductModel;
 		$products->DeleteProduct($id);
 		if($products){
-			redirect(base_url().'index.php/Products/index');
+			redirect(base_url('products'));
 		}
 	}
 	function editProduct($id){
@@ -57,7 +57,7 @@ class Products extends CI_Controller
 	function updateProduct($id){
 		$products = new ProductModel;
 		$products->UpdateProduct($id);
-		redirect(base_url().'index.php/Products/index');
+		redirect(base_url('products'));
 	}
 	function ProductReport(){	
 		ob_start();
