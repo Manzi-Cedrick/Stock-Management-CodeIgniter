@@ -357,9 +357,9 @@ a{
             <header>
             <ul>
                     <li><a href="<?php echo base_url()?>"><i class="fa-solid fa-users"></i><span>Users</span></a></li>
-                    <li><a href="<?php echo base_url().'index.php/Products/index'?>"><i class="fa-solid fa-cart-plus"></i><span>Products</span></a></li>
-                    <li><a href="<?php echo base_url().'index.php/StockInv/index'?>"><i class="fa-solid fa-clipboard"></i><span>Inventory</span></a></li>
-                    <li><a href="#"><i class="fa-solid fa-outdent"></i><span>Outgoing</span></a></li>
+                    <li><a href="<?php echo base_url('products')?>"><i class="fa-solid fa-cart-plus"></i><span>Products</span></a></li>
+                    <li><a href="<?php echo base_url('stock')?>"><i class="fa-solid fa-clipboard"></i><span>Inventory</span></a></li>
+                    <li><a href="<?php echo base_url('outgoing')?>"><i class="fa-solid fa-outdent"></i><span>Outgoing</span></a></li>
                 </ul>
             </header>
             <div class="Appnav">
@@ -378,15 +378,15 @@ a{
             <div class="LogoContainer">
                 <h2>Stock Management</h2>
             </div>
-            <a href="<?= base_url().'index.php/Products/index';?>"><div class="Order">
+            <a href="<?= base_url('products');?>"><div class="Order">
                 <p>Products</p>
                 <span><?= count($data) ?></span>
             </div></a>
-            <a href="<?= base_url().'index.php/StockInv/index'?>"><div class="Order">
+            <a href="<?= base_url('stock')?>"><div class="Order">
                 <p>Stock Inventory</p>
                 <span></span>
             </div></a>
-            <a href="<?= base_url().'index.php/Outgoing/index'?>"><div class="Order">
+            <a href="<?= base_url('outgoing')?>"><div class="Order">
                 <p>Outgoing</p>
                 <span></span>
             </div></a>
@@ -400,8 +400,8 @@ a{
                 <div class="users-now">
                     <span>Products</span>
                     <div class="btn-products">
-                    <button><a href="<?php echo base_url().'index.php/Products/createProduct';?>"><i class="fa-solid fa-plus" style="padding: 0 0.5em;"></i> Add Product</a></button>
-                    <button><a href="<?php echo base_url().'index.php/Products/ProductReport';?>">Print Report</a></button>
+                    <button><a href="<?php echo base_url('products/new');?>"><i class="fa-solid fa-plus" style="padding: 0 0.5em;"></i> Add Product</a></button>
+                    <button><a href="<?php echo base_url('products/report');?>">Print Report</a></button>
                     </div>
                 </div>
                 <div class="table-wrapper">
@@ -423,8 +423,8 @@ a{
                                 <td><?= $value['brand'];?></td>
                                 <td><?= $value['supplier'];?></td>
                                 <td><span class="td-pending"><?= $value['supplier_phone'];?></span></td>
-                                <td><a href="<?php echo base_url().'index.php/Products/deleteProduct/'.$value['productId'];?>"><i class="fa-solid fa-trash"></i></a></td>
-                                <td><a href="<?php echo base_url().'index.php/Products/editProduct/'.$value['productId'];?>"><i class="fa-solid fa-pencil"></i></a></td>
+                                <td><a href="<?php echo base_url('products/delete/').$value['productId'];?>"><i class="fa-solid fa-trash"></i></a></td>
+                                <td><a href="<?php echo base_url('products/edit/').$value['productId'];?>"><i class="fa-solid fa-pencil"></i></a></td>
                             </tr>
                             <?php 
                         }?>
