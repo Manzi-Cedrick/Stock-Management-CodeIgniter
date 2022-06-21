@@ -71,7 +71,7 @@ a{
         <div>
             <h1>Add To Stock</h1>
         </div>
-        <form action="<?= base_url().'index.php/StockInv/updateStock/'.$registered_details[0]['inventory_id']?>" method="post">
+        <form action="<?= base_url('stock/update/').$registered_details[0]['inventory_id']?>" method="post">
             <label>Quantity</label>
             <input type="number" name="quantity" placeholder="Add Quantity Name">
             <label>Product</label>
@@ -79,7 +79,7 @@ a{
                 <option value="<?= $registered_details[0]['productId']?>"><?= $registered_details[0]['productId']?></option>
             </select>
             <button class="btn add-btn" type="submit">Add</button>
-            <button class=" cancel-btn"><a href="<?php base_url().'index.php/StockInv/index'?>">Cancel</a></button>
+            <button class=" cancel-btn"><a href="<?php base_url('stock')?>">Cancel</a></button>
         </form>
     </div>
 </body>
