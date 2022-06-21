@@ -49,7 +49,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'dashboard';
+$route['default_controller'] = 'Dashboard/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['products']='products/index';
+$route['user/login']='Dashboard/showLoginUser';
+$route['user/signup']='Dashboard/createUser';
+$route['user/insert']='Dashboard/storeUser';
+$route['user/loginUser']='Dashboard/loginUser';
+$route['user/delete/(:num)']='Dashboard/deleteUser/$1';
+$route['user/updateUser/(:num)']='Dashboard/updateUser/$1';
+$route['user/editUser/(:num)']='Dashboard/editUser/$1';
+$route['user/report']='Dashboard/UserReport';
+
+//$routes products
+$route['products']='Products/index';
+$route['products/delete/(:num)']='Products/deleteProduct/$1';
+$route['products/edit/(:num)']='Products/editProduct/$1';
+$route['products/update/(:num)']='Products/updateProduct/$1';
+$route['products/new']='Products/createProduct';
+$route['products/store']='Products/storeProduct';
+$route['products/report']='Products/ProductReport';
+//$route stockData
+$route['stock']='StockInv/index';
+$route['stock/new']='StockInv/createInv';
+$route['stock/store']='StockInv/storeInv';
+$route['stock/delete/(:num)']='StockInv/deleteStock/$1';
+$route['stock/editStock/(:num)']='StockInv/editStock/$1';
+$route['stock/update/(:num)']='StockInv/updateStock/$1';
+$route['stock/report']='StockInv/StockReport';
+//$route outgoing
+$route['outgoing']='Outgoing/index';
+$route['outgoing/new']='Outgoing/createOut';
+$route['outgoing/store']='Outgoing/storeOut';
+$route['outgoing/delete/(:num)']='Outgoing/deleteOut/$1';
+$route['outgoing/editoutgoing/(:num)']='Outgoing/editOut/$1';
+$route['outgoing/update/(:num)']='Outgoing/updateOut/$1';
+$route['outgoing/report']='Outgoing/OutgoingReport';
