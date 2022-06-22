@@ -228,11 +228,11 @@ input[type='radio']{
             <div class='form-groups'>
             <div class='first-inputs'>
             <label>FirstName</label>
-            <input name="firstName" type="text" value="se" class="form-control " id="validationCustomUsername" placeholder="Firstname">
+            <input name="firstName" type="text" value="<?= $registered_details[0]['firstName']?>" class="form-control " id="validationCustomUsername" placeholder="Firstname">
             <label>Lastname</label>
-            <input name="lastName" type="text" class="form-control " id="validationCustomUsername" placeholder="LastName">
+            <input name="lastName" type="text" class="form-control" value="<?= $registered_details[0]['lastName']?>" id="validationCustomUsername" placeholder="LastName">
             <label>Email Address</label>
-            <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            <input name="email" type="email" value="<?= $registered_details[0]['email']?>" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
             <label>Password</label>
             <input name="password" type="password" class="form-control" id="exampleFormControlInput1" placeholder="password">
             </div>
