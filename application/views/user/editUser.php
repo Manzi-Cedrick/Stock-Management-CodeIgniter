@@ -224,11 +224,11 @@ input[type='radio']{
 <div class="sign-up">
     <span id="header">Sign Up</span>
     <div class="form">
-        <form action="<?php echo base_url('user/updateUser/').$registered?>" method="POST" enctype="multipart/form-data">
+        <form action="<?php echo base_url('user/updateUser/').$registered_details[0]['userId']?>" method="POST" enctype="multipart/form-data">
             <div class='form-groups'>
             <div class='first-inputs'>
             <label>FirstName</label>
-            <input name="firstName" type="text" class="form-control " id="validationCustomUsername" placeholder="Firstname">
+            <input name="firstName" type="text" value="se" class="form-control " id="validationCustomUsername" placeholder="Firstname">
             <label>Lastname</label>
             <input name="lastName" type="text" class="form-control " id="validationCustomUsername" placeholder="LastName">
             <label>Email Address</label>
