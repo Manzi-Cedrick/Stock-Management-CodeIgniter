@@ -73,10 +73,9 @@ class UserModel extends CI_Model {
             'lastName'=>$this->input->post('lastName'),
             'email'=>$this->input->post('email'),
             'telephone'=>$this->input->post('phone'),
-            'profile'=>$this->input->post('imageprofile'),
+            // 'profile'=>$this->input->post('imageprofile'),
             'gender'=>$this->input->post('gender'),
-            'username'=>$this->input->post('username'),
-            'password'=>$this->input->post('password')
+            'username'=>$this->input->post('username')
         );
         $this->db->where('userId',$id);
         return $this->db->update('users',$data);

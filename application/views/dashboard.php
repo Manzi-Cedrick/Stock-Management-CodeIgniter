@@ -432,8 +432,8 @@ a{
                                 <td><?= $user['gender'] ?></td>
                                 <td><?= $user['telephone'] ?></td>
                                 <td><?= $user['username'] ?></td>
-                                <td><a href="<?php echo base_url('users/delete/').$user['userId'];?>"><i class="fa-solid fa-trash"></i></a></td>
-                                <td><a href="<?php echo base_url('users/editUser/').$user['userId'];?>"><i class="fa-solid fa-pencil"></i></a></td>
+                                <td><a href="<?php echo base_url('user/delete/').$user['userId'];?>"><i class="fa-solid fa-trash"></i></a></td>
+                                <td><a href="<?php echo base_url('user/editUser/').$user['userId'];?>"><i class="fa-solid fa-pencil"></i></a></td>
                             </tr>
                             <?php } ?>
                         </tbody>

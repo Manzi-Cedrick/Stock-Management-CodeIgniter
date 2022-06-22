@@ -78,7 +78,7 @@ class Dashboard extends CI_Controller {
 	function updateUser($id){
 		$usersall = new UserModel;
 		$now=$usersall->UpdateUser($id);
-		if($now){
+		if($usersall->UpdateUser($id)){
 			redirect(base_url());
 		}
 	}
