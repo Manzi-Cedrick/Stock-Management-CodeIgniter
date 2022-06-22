@@ -222,7 +222,7 @@ input[type='radio']{
 </head>
 <body>
 <div class="sign-up">
-    <span id="header">Sign Up</span>
+    <span id="header">Update</span>
     <div class="form">
         <form action="<?php echo base_url('user/updateUser/').$registered_details[0]['userId']?>" method="POST" enctype="multipart/form-data">
             <div class='form-groups'>
@@ -236,21 +236,23 @@ input[type='radio']{
             </div>
             <div class="first-inputs">
             <label>Gender</label>
-            <input name="gender" type="radio" class="form-check-control " id="validationCustomUsername" placeholder="gender">Male
+            <?php if($registered_details[0]['gender']!= NULL){?>")
+            <input checked name="gender" type="radio" class="form-check-control " id="validationCustomUsername" placeholder="gender">Male
+            <?php } ?>
             <input name="gender" type="radio" class="form-check-control " id="validationCustomUsername" placeholder="gender">Female
             <input name="gender" type="radio" class="form-check-control " id="validationCustomUsername" placeholder="gender">Other  
-            <label>Upload Profile</label>
-            <input name="imageprofile" type="file" class="form-control" id="exampleFormControlInput"/>
+            <!-- <label>Upload Profile</label>
+            <input name="imageprofile" type="file" class="form-control" id="exampleFormControlInput"/> -->
             <label>Username</label>
-            <input name="username" type="text" class="form-control " id="validationCustomUsername" placeholder="username">
+            <input value="<?= $registered_details[0]['username']?>" name="username" type="text" class="form-control " id="validationCustomUsername" placeholder="username">
             <label>Telephone</label>
-            <input name="phone" type="number" class="form-control " id="validationCustomUsername" placeholder="telephone">
+            <input value="<?= $registered_details[0]['telephone']?>" name="phone" type="number" class="form-control " id="validationCustomUsername" placeholder="telephone">
             </div>
             </div>
             <div>
-            <input type="submit" value="Sign Up"/>
+            <input type="submit" value="Update"/>
             </div>
-            <span>Have an account ?</span><a href="<?= base_url('user/login'); ?>">Login Now</a>
+            <span>Have an account ?</span><a href="<?= base_url('user'); ?>">Go back</a>
         </form>
     </div>
 </div>
