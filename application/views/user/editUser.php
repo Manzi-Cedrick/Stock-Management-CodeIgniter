@@ -233,8 +233,6 @@ input[type='radio']{
             <input name="lastName" type="text" class="form-control" value="<?= $registered_details[0]['lastName']?>" id="validationCustomUsername" placeholder="LastName">
             <label>Email Address</label>
             <input name="email" type="email" value="<?= $registered_details[0]['email']?>" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-            <label>Password</label>
-            <input name="password" type="password" class="form-control" id="exampleFormControlInput1" placeholder="password">
             </div>
             <div class="first-inputs">
             <label>Gender</label>
